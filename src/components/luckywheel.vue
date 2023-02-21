@@ -832,9 +832,9 @@ h4 {
 }
 
 .modal {
-  position: fixed;
+  position: absolute;
   top: 0;
-  z-index: 99999;
+  z-index: 9999 !important;
   left: 0;
   right: 0;
   bottom: 0;
@@ -900,7 +900,7 @@ h4 {
   position: absolute;
   width: 100%;
   left: 0;
-  /* display: none; */
+  display: none;
 }
 
 .logo {
