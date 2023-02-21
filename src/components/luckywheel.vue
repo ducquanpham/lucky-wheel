@@ -91,9 +91,9 @@
             <option value="white">IHPONE 14 512GB MÀU TRẮNG</option>
             <option value="purple">IHPONE 14 512GB MÀU TÍM</option>
           </select>
-          <p class="form-profile-desc">Sau Khi Điền Đầy Đủ Thông Tin, Xin Vui Lòng Chụp Ảnh Màn Hình Lại Và Gửi Cho Nhân
-            Viên CSKH Thông Qua Số <span style="font-size: 16px;text-decoration: underline;color:aqua"> Zalo:
-              012345678</span> Để Được Nhận Quà</p>
+          <p class="form-profile-desc">Sau Khi Điền Đầy Đủ Thông Tin,Vui Lòng Chụp Ảnh Màn Hình Lại Và Gửi Cho Nhân
+            Viên CSKH Thông Qua Số <span style="font-size: 16px;text-decoration: underline;color:black"> Zalo:
+              012345678</span> Để Được Nhận Quà ❤️❤️❤️</p>
         </form>
         <button @click="closeModal" class="form-profile-btn">Đóng</button>
       </div>
@@ -833,7 +833,7 @@ h4 {
 
 .modal {
   position: fixed;
-  top: 20%;
+  top: 0;
   z-index: 999999999999999999999999999;
   left: 0;
   right: 0;
@@ -849,9 +849,9 @@ h4 {
   padding: 20px;
   border-radius: 5px;
   width: 330px;
-  z-index: 999999;
+  z-index: 9999999999999999999999999999999;
   position: absolute;
-  top: 30%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -871,7 +871,7 @@ h4 {
 
 .select-phone {
   width: 80%;
-  padding: 10px 0 0 10px;
+  padding: 5px 0 5px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
