@@ -460,10 +460,10 @@ export default {
 }
 
 .toast {
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  top: 40%;
   left: 50%;
-  z-index: 20000;
+  z-index: 20;
   transform: translate(-50%, -50%);
   width: 15.4375rem;
   background: #fff;
@@ -834,7 +834,7 @@ h4 {
 .modal {
   position: fixed;
   top: 0;
-  z-index: 999999999999999999999999999;
+  z-index: 99999;
   left: 0;
   right: 0;
   bottom: 0;
