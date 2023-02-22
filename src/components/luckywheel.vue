@@ -846,7 +846,7 @@ h4 {
 
 .modal-content {
   background-color: white;
-  padding: 20px;
+  padding: 20px 15px;
   border-radius: 5px;
   width: 330px;
   z-index: 9999999999999999999999999999999;
@@ -876,7 +876,11 @@ h4 {
   border-radius: 5px;
   background-color: white;
   color: #000;
-  height: 30px;
+  height: 40px;
+}
+.select-phone:focus{
+  background-color: #333;
+  color: white;
 }
 
 .form-profile-desc {
@@ -903,7 +907,7 @@ h4 {
   position: absolute;
   width: 100%;
   left: 0;
-  /* display: none; */
+  display: none;
 }
 
 .logo {
