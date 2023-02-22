@@ -275,7 +275,7 @@ export default {
   position: absolute;
   color: #fff;
   font-size: 10px;
-  margin-top: 4px;
+  margin-top: 2px;
 }
 
 .lucky-title {
@@ -907,7 +907,6 @@ h4 {
   position: absolute;
   width: 100%;
   left: 0;
-  display: none;
 }
 
 .logo {
