@@ -851,7 +851,7 @@ h4 {
   width: 330px;
   z-index: 9999999999999999999999999999999;
   position: absolute;
-  top: 45%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -874,6 +874,9 @@ h4 {
   padding: 5px 0 5px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: white;
+  color: #000;
+  height: 30px;
 }
 
 .form-profile-desc {
