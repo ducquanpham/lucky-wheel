@@ -454,16 +454,16 @@ export default {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.6);
-  z-index: 10000;
+  z-index: 10;
   width: 100%;
   height: 100%;
 }
 
 .toast {
-  position: absolute;
-  top: 40%;
+  position: fixed;
+  top: 50%;
   left: 50%;
-  z-index: 20;
+  z-index: 200;
   transform: translate(-50%, -50%);
   width: 15.4375rem;
   background: #fff;
@@ -900,7 +900,7 @@ h4 {
   position: absolute;
   width: 100%;
   left: 0;
-  display: none;
+  /* display: none; */
 }
 
 .logo {
