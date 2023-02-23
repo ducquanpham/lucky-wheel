@@ -26,8 +26,8 @@ export const prizeList = [
   },
   {
     icon: require("../assets/img/point_five.png"),
-    name: "Đậu thần 2",
-    isPrize: 1
+    name: "Đậu thần 10",
+    isPrize: 2
   },
   {
     icon: require("../assets/img/point_ten.png"),

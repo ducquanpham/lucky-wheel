@@ -95,7 +95,7 @@
             Viên CSKH Thông Qua Số <span style="font-size: 16px;text-decoration: underline;color:black"> Zalo:
               012345678</span> Để Được Nhận Quà ❤️❤️❤️</p>
         </form>
-        <button @click="closeModal" class="form-profile-btn">Đóng</button>
+        <a href="https://www.facebook.com/CuanKun1102" class="link-fb"><button @click="closeModal" class="form-profile-btn">Đóng</button></a>
       </div>
     </div>
     <div class="footer">
@@ -154,11 +154,6 @@ export default {
         ? "Chúc Mừng Bạn Đã Trúng: " +
         this.prize.name
         : "Xin Lỗi Bạn";
-    },
-    toastImage() {
-      return this.prize && this.prize.isPrize === 1
-        ? require("../assets/img/ip2.png")
-        : require("../assets/img/sorry.png");
     },
     toastIcon() {
       return this.prize && this.prize.isPrize === 1
@@ -388,7 +383,7 @@ export default {
 .main {
   position: relative;
   width: 100%;
-  min-height: 25.5rem;
+  min-height: 22rem;
   background: rgb(243, 109, 86);
   padding-bottom: 1.6875rem;
 }
@@ -907,6 +902,7 @@ h4 {
   position: absolute;
   width: 100%;
   left: 0;
+  /* display: none; */
 }
 
 .logo {
@@ -925,14 +921,13 @@ h4 {
   background: rgba(58, 63, 68, 0.5);
   border-radius: 5px;
   box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
-  width: 95%;
+  width: 350px;
   display: flex;
   flex-direction: column;
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
   position: fixed;
-
 }
 
 .container-login input {
