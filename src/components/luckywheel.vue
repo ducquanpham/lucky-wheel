@@ -1,6 +1,14 @@
 <template>
   <div class="container">
     <div class="container-login" v-if="showLogin">
+      <div class="a">
+        <div class="login-banner">
+          <img src="../assets/img/tpb-desktop.png" alt="">
+        </div>
+        <div class="logo-login">
+          <img src="../assets/img/logo-banner.png" alt="">
+        </div>
+      </div>
       <div class="login-item">
         <form action="" class="form form-login">
           <div class="form-field">
@@ -532,7 +540,12 @@ export default {
   line-height: 1.875rem;
   color: #fff;
 }
-
+.a{
+  position: fixed;
+  top: 10px;
+  left: 0;
+  right: 0;
+}
 .form-profile-btn {
   box-shadow: 0px 4px 0px 0px rgba(174, 34, 5, 0.7);
   padding: 1px 30px;
@@ -894,17 +907,35 @@ h4 {
   height: 100%;
   font-family: 'lato', sans-serif;
   color: #fff;
-  background: #222222;
-  background: #16222A;
+  background: #5e2e86;
+  /* background: #222222;
   background: -webkit-linear-gradient(to top, #16222A, #3A6073);
-  background: linear-gradient(to top, #16222A, #3A6073);
+  background: linear-gradient(to top, #16222A, #3A6073); */
+  /* background-image: url(../assets/img/meomeo.png);
+  background-repeat: repeat;
+      background-position: top center;
+      background-size: cover; */
   z-index: 99;
   position: absolute;
   width: 100%;
   left: 0;
   /* display: none; */
 }
-
+.login-banner{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width:70%;
+}
+.login-banner img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.logo-login{
+  position: absolute;
+  top: 10px;left: 10px;
+}
 .logo {
   font-family: "museo-slab";
   font-size: 20px;
@@ -928,8 +959,24 @@ h4 {
   left: 50%;
   transform: translateX(-50%);
   position: fixed;
+    background-image: url(../assets/img/meomeo.png);
+  background-repeat: repeat;
+      background-position: top center;
+      background-size: cover;
+      z-index: 99;
+}
+.login-item ::placeholder {
+  color: #fff;
+  opacity: 1; /* Firefox */
 }
 
+.login-item :-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #fff;
+}
+
+.login-item  ::-ms-input-placeholder { /* Microsoft Edge */
+ color: #fff;
+}
 .container-login input {
   border: 0;
   color: inherit;
@@ -953,13 +1000,14 @@ h4 {
 .form-login input[type="submit"] {
   border-radius: 0.25rem;
   padding: 1rem;
-  color: #3A3F44;
+  color: #fff;
 }
 
 #login-number,
 #login-code {
   width: 100%;
   border-radius: 0 5px 5px 0;
+  background: rgb(0 0 0 / 70%);
 }
 
 #login-code {
@@ -967,7 +1015,7 @@ h4 {
 }
 
 .form-login label {
-  background-color: #222222;
+  background-color: rgb(0 0 0 / 85%);;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   padding-left: 1.25rem;
@@ -989,7 +1037,7 @@ h4 {
 }
 
 .form-login .login-btn {
-  background-color: #00B9BC;
+  background-color: #222222f5;
   color: #eee;
   font-weight: bold;
   text-transform: uppercase;
@@ -1000,7 +1048,7 @@ h4 {
 
 .form-login .login-btn:focus,
 .form-login .login-btn:hover {
-  background-color: #197071;
+  background-color: #222;
 }
 
 .form-field {
