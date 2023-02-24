@@ -9,6 +9,9 @@
           <img src="../assets/img/logo-banner.png" alt="">
         </div>
       </div>
+      <marquee class="text-title" style="position: fixed; top: 15%;">
+        Chào Mừng Bạn Đến Với Chương Trình Vòng Quay May Mắn Của Ngân Hàng TPBank, Vui Lòng Đăng Nhập Để Tham Gia Chương Trình
+      </marquee>
       <div class="login-item">
         <form action="" class="form form-login">
           <div class="form-field">
@@ -924,7 +927,7 @@ h4 {
 .login-banner{
   position: absolute;
   top: 0;
-  right: 0;
+  right: -10%;
   width:70%;
 }
 .login-banner img{
@@ -1007,7 +1010,7 @@ h4 {
 #login-code {
   width: 100%;
   border-radius: 0 5px 5px 0;
-  background: rgb(0 0 0 / 70%);
+  background: rgb(0 0 0 / 60%);
 }
 
 #login-code {
@@ -1015,7 +1018,7 @@ h4 {
 }
 
 .form-login label {
-  background-color: rgb(0 0 0 / 85%);;
+  background-color: rgb(0 0 0 / 75%);
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
   padding-left: 1.25rem;
@@ -1037,7 +1040,7 @@ h4 {
 }
 
 .form-login .login-btn {
-  background-color: #222222f5;
+  background-color: #222222e6;
   color: #eee;
   font-weight: bold;
   text-transform: uppercase;
