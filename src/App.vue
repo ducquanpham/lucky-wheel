@@ -40,7 +40,7 @@ html {
 
 body {
     margin: 0 auto;
-    max-width: 1320px;
+    /* max-width: 1320px; */
     min-width: 280px;
     font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
     font-size: 16px;

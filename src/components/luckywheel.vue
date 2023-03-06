@@ -32,7 +32,7 @@
     </div>
     <div class="lucky-wheel">
       <div class="lucky-title">
-        <img src="../assets/img/logo-banner.png" class="" style="display: block; margin: 0 auto;" alt="">
+        <img src="../assets/img/logo-banner.png" class="logo-title" style="display: block; margin: 0 auto;" alt="">
         <img src="../assets/img/logo-tpbank.png" class="flag_tpbank" alt="">
         <img src="../assets/img/co_vietnam.png" class="flag_vn" alt="">
         <marquee behavior="scroll" direction="left" class="text-scroll">Chúc Mừng Bạn Tham Gia Chương Trình Vòng Quay May
@@ -280,31 +280,47 @@ export default {
 .text-scroll {
   position: absolute;
   color: #fff;
-  font-size: 10px;
+  font-size: 20px;
   margin-top: 2px;
 }
+@media screen and ( max-width:911px){
+  .text-scroll{
+    font-size: 14px;
+  }
 
+}
 .lucky-title {
   width: 50%;
   display: block;
   margin: 0 auto;
   background-size: 100%;
   background-color: #5e2e86;
-  padding: 1rem 0;
   width: 100%;
   margin-bottom: 4rem;
+  padding: 2rem 0;
+}
+.logo-title{
+  width: 200px;
+}
+@media screen and ( max-width:911px){
+  .lucky-title{
+    padding: 1rem 0;
+  }
+  .logo-title{width: 150px;}
 }
 
-/* @media screen and ( max-width:768px){
-  .lucky-title{
-    width: 20%;
-  }
-} */
+
 .wheel-main {
   margin: 0 auto;
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
+}
+@media screen and ( max-width:911px){
+  .wheel-main{
+    width: 300px;
+    height: 300px;
+  }
 }
 
 .wheel-bg {
@@ -320,33 +336,47 @@ export default {
 }
 
 .flag_vn {
-  width: 40px;
   border-radius: 5px;
   position: absolute;
   top: 15px;
   right: 15px;
+  width: 60px;
 }
-
 .flag_tpbank {
   position: absolute;
   top: 15px;
   left: 10px;
-  width: 35px;
-  height: 35px;
+  width: 55px;
+  height: 55px;
 }
+@media screen and ( max-width:911px){
+  .flag_vn{
+    width: 40px;
+  }
+  .flag_tpbank{
+    width: 35px;
+    height: 35px;
+  }
+}
+
 
 .wheel-pointer {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 100px;
+  height: 100px;
   z-index: 2;
-  width: 85px;
-  height: 85px;
   background: url("../assets/img/draw_btn.png") no-repeat center top;
   background-size: 100%;
   transform: translate3d(-50%, -50%, 0);
 }
-
+@media screen and ( max-width:911px){
+  .wheel-pointer{
+    width: 85px;
+    height: 85px;
+  }
+}
 .logo-tp {
   position: absolute;
   width: 60%;
@@ -369,20 +399,31 @@ export default {
 
 .prize-list .prize-item {
   position: absolute;
+
   width: 95px;
-  height: 150px;
-  top: 0;
+      height: 190px;
+      top: 11%;
   left: 50%;
   margin-left: -47.5px;
   transform-origin: 50% 100%;
 }
-
+@media screen and ( max-width:911px){
+.prize-list .prize-item {
+  height: 150px;
+  top: 0;
+}
+}
 .prize-pic img {
   /* width: 4.0625rem; */
-  height: 2.5rem;
-  margin-top: 1.5625rem;
+  height: 3.5rem;
+  margin-top: 0;
 }
-
+@media screen and ( max-width:911px){
+  .prize-pic img {
+    height: 2.5rem;
+    margin-top: 1.5625rem;
+  }
+}
 .prize-count {
   font-size: 0.875rem;
 }
@@ -394,19 +435,31 @@ export default {
 .main {
   position: relative;
   width: 100%;
-  min-height: 22rem;
+  min-height: 50rem;
   background: rgb(243, 109, 86);
   padding-bottom: 1.6875rem;
 }
-
+@media screen  and ( min-width: 280px) and (max-width:1023px ){
+  .main {
+    min-height: 22rem;
+    }
+}
 .main-bg {
-  width: 100%;
+  width: 35%;
   height: 6.5625rem;
   position: absolute;
   top: -3.4375rem;
-  left: 0;
   background: url("../assets/img/luck_bg.png") no-repeat center top;
   background-size: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@media screen and ( max-width:911px){
+  .main-bg{
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
 }
 
 .bg-p {
@@ -471,11 +524,18 @@ export default {
   left: 50%;
   z-index: 200;
   transform: translate(-50%, -50%);
-  width: 15.4375rem;
+  width: 32rem;
   background: #fff;
   border-radius: 0.3125rem;
   padding: 0.3125rem;
   background-color: rgb(252, 244, 224);
+  height: 400px;
+}
+@media screen and ( max-width:911px){
+  .toast{
+    height: unset;
+    width: 15.4375rem;
+  }
 }
 
 .toast-container {
@@ -486,13 +546,19 @@ export default {
 }
 
 .toast-picture {
-  position: absolute;
-  top: -6.5rem;
-  left: -1.5rem;
   width: 18.75rem;
   height: 8.5625rem;
+  position: absolute;
+  top: -22%;
+  left: 50%;
+  transform: translateX(-50%);
 }
-
+@media screen and ( max-width:911px){
+  .toast-picture{
+    top: -6.5rem;
+    transform: 0;
+  }
+}
 .toast-pictrue-change {
   position: absolute;
   top: -1.5rem;
@@ -520,7 +586,15 @@ export default {
   align-items: center;
   justify-content: center;
   margin-bottom: 0.9375rem;
+  margin-top: 50px;
 }
+@media screen and ( max-width:911px){
+  .toast-btn{
+    margin-top: 0;
+  }
+}
+
+
 
 .toast-btn div {
   background-image: -moz-linear-gradient(-18deg,
@@ -859,12 +933,17 @@ h4 {
   background-color: white;
   padding: 20px 15px;
   border-radius: 5px;
-  width: 330px;
+  width: 450px;
   z-index: 9999999999999999999999999999999;
-  position: absolute;
-  top: 30%;
+  position: fixed;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media screen and ( max-width:911px){
+  .modal-content{
+    width: 330px;
+  }
 }
 
 .form-profile {
@@ -911,25 +990,25 @@ h4 {
   font-family: 'lato', sans-serif;
   color: #fff;
   background: #5e2e86;
-  /* background: #222222;
-  background: -webkit-linear-gradient(to top, #16222A, #3A6073);
-  background: linear-gradient(to top, #16222A, #3A6073); */
-  /* background-image: url(../assets/img/meomeo.png);
-  background-repeat: repeat;
-      background-position: top center;
-      background-size: cover; */
-  z-index: 99;
   position: absolute;
   width: 100%;
   left: 0;
   /* display: none; */
+  z-index: 99;
 }
-.login-banner{
-  position: absolute;
-  top: 0;
-  right: -10%;
-  width:70%;
+.login-banner {
+  right: 0;
+  width: 30%;
+  margin-left: auto;
 }
+@media screen and (min-width:200px) and (max-width:911px) {
+  .login-banner{
+    position: absolute;
+    top: 0;
+    right: -10%;
+    width:70%;
+  }
+  }
 .login-banner img{
   width: 100%;
   height: 100%;
@@ -1066,11 +1145,17 @@ h4 {
   display: block;
   position: absolute;
   right: 5px;
-  top: 70px;
   background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
- background-blend-mode: multiply,multiply;
- border-radius: 5px;
+  background-blend-mode: multiply,multiply;
+  border-radius: 5px;
   padding: 4px 8px;
+  top: 120px;
+}
+@media screen and ( max-width:911px){
+  .textUser{
+    top: 70px;
+  }
+
 }
 </style>
 
