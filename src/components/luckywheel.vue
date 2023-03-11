@@ -10,13 +10,15 @@
         </div>
       </div>
       <marquee class="text-title" style="position: fixed; top: 15%;">
-        Chào Mừng Bạn Đến Với Chương Trình Vòng Quay May Mắn Của Ngân Hàng TPBank, Vui Lòng Đăng Nhập Để Tham Gia Chương Trình
+        Chào Mừng Bạn Đến Với Chương Trình Vòng Quay May Mắn Của Ngân Hàng TPBank, Vui Lòng Đăng Nhập Để Tham Gia Chương
+        Trình
       </marquee>
       <div class="login-item">
         <form action="" class="form form-login">
           <div class="form-field">
             <label for="login-username"><img class="icon-phone" src="../assets/img/phone.svg" alt=""></label>
-            <input id="login-number" type="number" v-model="sdt" @input="onInput" class="form-input" placeholder="Số Điện Thoại" required>
+            <input id="login-number" type="number" v-model="sdt" @input="onInput" class="form-input"
+              placeholder="Số Điện Thoại" required>
           </div>
 
           <div class="form-field">
@@ -37,8 +39,8 @@
         <img src="../assets/img/co_vietnam.png" class="flag_vn" alt="">
         <marquee behavior="scroll" direction="left" class="text-scroll">Chúc Mừng Bạn Tham Gia Chương Trình Vòng Quay May
           Mắn Của TP Bank, Mọi thắc mắc liên hệ CSKH:012345678 </marquee>
-        </div>
-        <div class="textUser">Tên Người Dùng:{{ sdt }}</div>
+      </div>
+      <div class="textUser">Tên Người Dùng:{{ sdt }}</div>
       <div class="wheel-main">
         <div class="wheel-pointer" @click="beginRotate()">
           <img src="../assets/img/logo.png" class="logo-tp" alt="">
@@ -61,21 +63,11 @@
       <div class="content">
         <div class="count">Số Luợt Còn Lại là: {{ count }}</div>
       </div>
-      <div class="loading-animation__wrapper">
-        <div class="loading-animation__content">
-          <div class="loading-animation__list-wrapper">
-            <div class="loading-animation__tick"></div>
-            <ul class="loading-animation__list">
-              <li>Chúc Mừng Nguyễn Văn A Trúng thưởng 1 phần quà to lớn Vàng</li>
-              <li>Chúc Mừng Nguyễn Văn Q Trúng thưởng 1 phần quà to lớn Xanh</li>
-              <li>Chúc Mừng Nguyễn Văn E Trúng thưởng 1 phần quà to lớn Đỏ</li>
-              <li>Chúc Mừng Nguyễn Văn R Trúng thưởng 1 phần quà to lớn Tím</li>
-              <li>Chúc Mừng Nguyễn Văn Y Trúng thưởng 1 phần quà to lớn Trắng</li>
-              <li>Chúc Mừng Nguyễn Văn T Trúng thưởng 1 phần quà to lớn Đen</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <ul class="media-list">
+        <li v-for="(item, idx) in dataNewMediaIndex" :key="idx" class="media-item"> {{ item.item }}
+        <img :src="item.image" alt="" width="20" height="20" class="media-item-check" style="-webkit-user-select: none;margin: auto;cursor: zoom-in;transition: background-color 300ms;">
+        </li>
+      </ul>
     </div>
     <div class="toast" v-show="prize">
       <div class="toast-container">
@@ -106,7 +98,8 @@
             Viên CSKH Thông Qua Số <span style="font-size: 16px;text-decoration: underline;color:black"> Zalo:
               012345678</span> Để Được Nhận Quà ❤️❤️❤️</p>
         </form>
-        <a href="https://www.facebook.com/CuanKun1102" class="link-fb"><button @click="closeModal" class="form-profile-btn">Đóng</button></a>
+        <a href="https://www.facebook.com/CuanKun1102" class="link-fb"><button @click="closeModal"
+            class="form-profile-btn">Đóng</button></a>
       </div>
     </div>
     <div class="footer">
@@ -120,6 +113,7 @@
 </template>
 <script>
 import { prizeList } from './config'
+import { dataNewMediaIndex } from './config'
 
 const CIRCLE_ANGLE = 360
 
@@ -136,6 +130,7 @@ export default {
       count: 3,
       duration: 3000,
       prizeList: [],
+      dataNewMediaIndex: [],
       rotateAngle: 0,
       index: 0,
       prize: null,
@@ -151,6 +146,7 @@ export default {
     this.config = config
 
     this.initPrizeList();
+    this.initDataNewMediaIndex();
   },
   computed: {
     rotateStyle() {
@@ -170,7 +166,8 @@ export default {
       return this.prize && this.prize.isPrize === 1
         ? require("../assets/img/congratulation.png")
         : require("../assets/img/sorry.png");
-    }
+    },
+
   },
   methods: {
     closeLogin() {
@@ -183,11 +180,14 @@ export default {
         alert("vui lòng nhập đủ 10 số")
       } return
     },
-    onInput (e) {
+    onInput(e) {
       this.text = e.target.value;
     },
     initPrizeList() {
       this.prizeList = this.formatPrizeList(prizeList)
+    },
+    initDataNewMediaIndex() {
+      this.dataNewMediaIndex = this.formatPrizeList(dataNewMediaIndex)
     },
     openModal() {
       this.show = true
@@ -260,11 +260,12 @@ export default {
     },
     closeToast() {
       this.prize = null;
-    }
+    },
+
   }
 };
 </script>
-<style scoped>
+<style>
 .container {
   width: 100%;
   overflow: hidden;
@@ -283,12 +284,7 @@ export default {
   font-size: 20px;
   margin-top: 2px;
 }
-@media screen and ( max-width:911px){
-  .text-scroll{
-    font-size: 14px;
-  }
 
-}
 .lucky-title {
   width: 50%;
   display: block;
@@ -299,28 +295,16 @@ export default {
   margin-bottom: 4rem;
   padding: 2rem 0;
 }
-.logo-title{
+
+.logo-title {
   width: 200px;
 }
-@media screen and ( max-width:911px){
-  .lucky-title{
-    padding: 1rem 0;
-  }
-  .logo-title{width: 150px;}
-}
-
 
 .wheel-main {
   margin: 0 auto;
   position: relative;
   width: 500px;
   height: 500px;
-}
-@media screen and ( max-width:911px){
-  .wheel-main{
-    width: 300px;
-    height: 300px;
-  }
 }
 
 .wheel-bg {
@@ -342,6 +326,7 @@ export default {
   right: 15px;
   width: 60px;
 }
+
 .flag_tpbank {
   position: absolute;
   top: 15px;
@@ -349,16 +334,6 @@ export default {
   width: 55px;
   height: 55px;
 }
-@media screen and ( max-width:911px){
-  .flag_vn{
-    width: 40px;
-  }
-  .flag_tpbank{
-    width: 35px;
-    height: 35px;
-  }
-}
-
 
 .wheel-pointer {
   position: absolute;
@@ -371,12 +346,7 @@ export default {
   background-size: 100%;
   transform: translate3d(-50%, -50%, 0);
 }
-@media screen and ( max-width:911px){
-  .wheel-pointer{
-    width: 85px;
-    height: 85px;
-  }
-}
+
 .logo-tp {
   position: absolute;
   width: 60%;
@@ -401,29 +371,19 @@ export default {
   position: absolute;
 
   width: 95px;
-      height: 190px;
-      top: 11%;
+  height: 190px;
+  top: 11%;
   left: 50%;
   margin-left: -47.5px;
   transform-origin: 50% 100%;
 }
-@media screen and ( max-width:911px){
-.prize-list .prize-item {
-  height: 150px;
-  top: 0;
-}
-}
+
 .prize-pic img {
   /* width: 4.0625rem; */
   height: 3.5rem;
   margin-top: 0;
 }
-@media screen and ( max-width:911px){
-  .prize-pic img {
-    height: 2.5rem;
-    margin-top: 1.5625rem;
-  }
-}
+
 .prize-count {
   font-size: 0.875rem;
 }
@@ -439,11 +399,13 @@ export default {
   background: rgb(243, 109, 86);
   padding-bottom: 1.6875rem;
 }
-@media screen  and ( min-width: 280px) and (max-width:1023px ){
+
+@media screen and (min-width: 280px) and (max-width:1023px) {
   .main {
     min-height: 22rem;
-    }
+  }
 }
+
 .main-bg {
   width: 35%;
   height: 6.5625rem;
@@ -453,13 +415,6 @@ export default {
   background-size: 100%;
   left: 50%;
   transform: translateX(-50%);
-}
-@media screen and ( max-width:911px){
-  .main-bg{
-    left: 0;
-    width: 100%;
-    transform: none;
-  }
 }
 
 .bg-p {
@@ -531,12 +486,6 @@ export default {
   background-color: rgb(252, 244, 224);
   height: 400px;
 }
-@media screen and ( max-width:911px){
-  .toast{
-    height: unset;
-    width: 15.4375rem;
-  }
-}
 
 .toast-container {
   position: relative;
@@ -553,12 +502,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
 }
-@media screen and ( max-width:911px){
-  .toast-picture{
-    top: -6.5rem;
-    transform: 0;
-  }
-}
+
 .toast-pictrue-change {
   position: absolute;
   top: -1.5rem;
@@ -588,13 +532,6 @@ export default {
   margin-bottom: 0.9375rem;
   margin-top: 50px;
 }
-@media screen and ( max-width:911px){
-  .toast-btn{
-    margin-top: 0;
-  }
-}
-
-
 
 .toast-btn div {
   background-image: -moz-linear-gradient(-18deg,
@@ -617,12 +554,14 @@ export default {
   line-height: 1.875rem;
   color: #fff;
 }
-.a{
+
+.a {
   position: fixed;
   top: 10px;
   left: 0;
   right: 0;
 }
+
 .form-profile-btn {
   box-shadow: 0px 4px 0px 0px rgba(174, 34, 5, 0.7);
   padding: 1px 30px;
@@ -698,209 +637,11 @@ h4 {
   line-height: 28px;
 }
 
-.loading-animation__list-wrapper {
-  position: relative;
-  height: 8rem;
-  overflow: hidden;
-}
-
-.loading-animation__list-wrapper .loading-animation__tick {
-  position: absolute;
-  left: 0;
-  top: 2.3rem;
-  width: 1rem;
-  height: 1rem;
-}
-
-.loading-animation__list-wrapper .loading-animation__tick:before {
-  display: block;
-  position: absolute;
-  left: 1px;
-  top: 5px;
-  content: '';
-  width: 9px;
-  height: 4px;
-  transform: rotate(45deg);
-  transform-origin: left;
-  background-color: #00d158;
-  animation: tick-1 1.6s ease-out infinite;
-}
-
-.loading-animation__list-wrapper .loading-animation__tick:after {
-  display: block;
-  position: absolute;
-  left: 5px;
-  top: 11px;
-  content: '';
-  width: 15px;
-  height: 4px;
-  transform: rotate(-45deg);
-  transform-origin: left;
-  background-color: #00d158;
-  animation: tick-2 1.6s ease-in infinite;
-}
-
 .icon-phone,
 .icon-card {
   width: 15px;
 }
 
-.loading-animation__list-wrapper:after {
-  display: block;
-  position: absolute;
-  content: '';
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  height: 6.75rem;
-}
-
-.loading-animation__list {
-  position: relative;
-  padding-left: 2rem;
-  max-width: calc(100vw - 2rem);
-  animation: list 8s 0.8s linear infinite;
-}
-
-.loading-animation__list li {
-  font-weight: bold;
-  font-size: 0.8rem;
-  line-height: 1.25rem;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  animation: fade-out 8s 0.8s ease-out infinite;
-}
-
-.loading-animation__list li:nth-child(2) {
-  animation-delay: 2.4s;
-}
-
-.loading-animation__list li:nth-child(3) {
-  animation-delay: 4s;
-}
-
-.loading-animation__list li:nth-child(4) {
-  animation-delay: 5.6s;
-}
-
-.loading-animation__list li:nth-child(5) {
-  animation-delay: 7.2s;
-}
-
-.loading-animation__list li:nth-child(6) {
-  animation-delay: 8.8s;
-}
-
-.loading-animation__list li:nth-child(7) {
-  animation-delay: 10.4s;
-}
-
-.loading-animation__list li:nth-child(8) {
-  animation-delay: 12s;
-}
-
-.loading-animation__list li:nth-child(9) {
-  animation-delay: 13.6s;
-}
-
-.loading-animation__list li:nth-child(10) {
-  animation-delay: 15.2s;
-}
-
-@keyframes list {
-  0% {
-    transform: translateY(0);
-  }
-
-  7%,
-  20% {
-    transform: translateY(-2.75rem);
-  }
-
-  27%,
-  40% {
-    transform: translateY(-5.5rem);
-  }
-
-  47%,
-  60% {
-    transform: translateY(-8.25rem);
-  }
-
-  67%,
-  80% {
-    transform: translateY(-11rem);
-  }
-
-  87%,
-  100% {
-    transform: translateY(-13.75rem);
-  }
-}
-
-@keyframes fade-out {
-  0% {
-    opacity: 1;
-  }
-
-  10%,
-  70% {
-    opacity: 0;
-  }
-
-  80%,
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes tick-1 {
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-
-  16% {
-    width: 9px;
-    opacity: 1;
-  }
-
-  50% {
-    width: 9px;
-    opacity: 1;
-  }
-
-  66%,
-  100% {
-    width: 9px;
-    opacity: 0;
-  }
-}
-
-@keyframes tick-2 {
-
-  0%,
-  16% {
-    width: 0;
-    opacity: 1;
-  }
-
-  33% {
-    width: 15px;
-    opacity: 1;
-  }
-
-  50% {
-    width: 15px;
-    opacity: 1;
-  }
-
-  66%,
-  100% {
-    width: 15px;
-    opacity: 0;
-  }
-}
 
 .footer {
   display: flex;
@@ -940,11 +681,6 @@ h4 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-@media screen and ( max-width:911px){
-  .modal-content{
-    width: 330px;
-  }
-}
 
 .form-profile {
   margin-top: 20px;
@@ -968,7 +704,8 @@ h4 {
   color: #000;
   height: 40px;
 }
-.select-phone:focus{
+
+.select-phone:focus {
   background-color: #333;
   color: white;
 }
@@ -977,6 +714,7 @@ h4 {
   margin-top: 25px;
   color: red;
   font-size: 13.5px;
+  line-height: 20px;
 }
 
 * {
@@ -993,31 +731,37 @@ h4 {
   position: absolute;
   width: 100%;
   left: 0;
-  /* display: none; */
+  display: none;
   z-index: 99;
 }
+
 .login-banner {
   right: 0;
   width: 30%;
   margin-left: auto;
 }
+
 @media screen and (min-width:200px) and (max-width:911px) {
-  .login-banner{
+  .login-banner {
     position: absolute;
     top: 0;
     right: -10%;
-    width:70%;
+    width: 70%;
   }
-  }
-.login-banner img{
+}
+
+.login-banner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.logo-login{
+
+.logo-login {
   position: absolute;
-  top: 10px;left: 10px;
+  top: 10px;
+  left: 10px;
 }
+
 .logo {
   font-family: "museo-slab";
   font-size: 20px;
@@ -1041,24 +785,29 @@ h4 {
   left: 50%;
   transform: translateX(-50%);
   position: fixed;
-    background-image: url(../assets/img/meomeo.png);
+  background-image: url(../assets/img/meomeo.png);
   background-repeat: repeat;
-      background-position: top center;
-      background-size: cover;
-      z-index: 99;
+  background-position: top center;
+  background-size: cover;
+  z-index: 99;
 }
+
 .login-item ::placeholder {
   color: #fff;
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
 
-.login-item :-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: #fff;
+.login-item :-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #fff;
 }
 
-.login-item  ::-ms-input-placeholder { /* Microsoft Edge */
- color: #fff;
+.login-item ::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #fff;
 }
+
 .container-login input {
   border: 0;
   color: inherit;
@@ -1140,22 +889,128 @@ h4 {
   display: flex;
   margin-bottom: 2rem;
 }
-.textUser{
+
+.textUser {
   color: white;
   display: block;
   position: absolute;
   right: 5px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-  background-blend-mode: multiply,multiply;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+  background-blend-mode: multiply, multiply;
   border-radius: 5px;
   padding: 4px 8px;
   top: 120px;
 }
-@media screen and ( max-width:911px){
-  .textUser{
+
+.wheel-main {
+  margin: 0 auto;
+  position: relative;
+  width: 500px;
+  height: 500px;
+}
+
+/* media list */
+.media-list {
+  padding: 0 10px;
+  height: 200px;
+  overflow-y: scroll;
+  margin-top: 30px;
+}
+
+.media-item {
+  color: #fff;
+  font-size: 14px;
+  position: relative;
+  margin-top: 15px;
+  margin-left: 25px;
+  animation: animate 15s linear infinite;
+}
+
+.media-item-check {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: -28px;
+  transform: translateY(-50%);
+}
+@keyframes animate {
+	0% { transform: translateY(0); }
+	100% { transform: translateY(calc(-500px))}
+}
+.media-list::-webkit-scrollbar{
+  display: none;
+}
+@media screen and (max-width:911px) {
+  .modal-content {
+    width: 330px;
+  }
+
+  .toast-btn {
+    margin-top: 0;
+  }
+
+  .toast-picture {
+    top: -6.5rem;
+    transform: 0;
+  }
+
+  .toast {
+    height: unset;
+    width: 15.4375rem;
+  }
+
+  .main-bg {
+    left: 0;
+    width: 100%;
+    transform: none;
+  }
+
+  .prize-pic img {
+    height: 2.5rem;
+    margin-top: 1.5625rem;
+  }
+
+  .prize-list .prize-item {
+    height: 150px;
+    top: 0;
+  }
+
+  .wheel-pointer {
+    width: 85px;
+    height: 85px;
+  }
+
+  .flag_vn {
+    width: 40px;
+  }
+
+  .flag_tpbank {
+    width: 35px;
+    height: 35px;
+  }
+
+  .wheel-main {
+    width: 300px;
+    height: 300px;
+  }
+
+  .lucky-title {
+    padding: 1rem 0;
+  }
+
+  .logo-title {
+    width: 150px;
+  }
+
+
+
+  .text-scroll {
+    font-size: 14px;
+  }
+
+  .textUser {
     top: 70px;
   }
 
-}
-</style>
+}</style>
 
