@@ -716,7 +716,9 @@ h4 {
   background-color: #333;
   color: white;
 }
-
+.form-input:focus {
+  background-color: #000;
+}
 .form-profile-desc {
   margin-top: 25px;
   color: red;
@@ -738,7 +740,7 @@ h4 {
   position: absolute;
   width: 100%;
   left: 0;
-  display: none;
+  /* display: none; */
   z-index: 99;
 }
 
@@ -886,7 +888,7 @@ h4 {
 
 .form-login .login-btn:focus,
 .form-login .login-btn:hover {
-  background-color: #222;
+  background-color: #000;
 }
 
 .form-field {
@@ -938,6 +940,8 @@ h4 {
 .media-item-check {
   position: absolute;
   content: '';
+  width: 20px;
+  height: 20px;
   top: 50%;
   left: -28px;
   transform: translateY(-50%);
@@ -973,7 +977,7 @@ h4 {
 
   .toast {
     height: unset;
-    width: 15.4375rem;
+    width: 16.5rem;
   }
 
   .main-bg {
@@ -990,18 +994,6 @@ h4 {
   .prize-list .prize-item {
     height: 150px;
     top: 0;
-  }
-  .prize-list .prize-title{
-    font-weight: bold;
-    font-size: 12px;
-    position: absolute;
-    top: 40%;
-    text-align: center;
-    content: '';
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 66%;
-    display: block;
   }
   .wheel-pointer {
     width: 85px;
