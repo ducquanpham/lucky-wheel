@@ -36,6 +36,7 @@
       <div class="lucky-title">
         <img src="../assets/img/logo-banner.png" class="logo-title" style="display: block; margin: 0 auto;" alt="">
         <img src="../assets/img/logo-tpbank.png" class="flag_tpbank" alt="">
+
         <img src="../assets/img/co_vietnam.png" class="flag_vn" alt="">
         <marquee behavior="scroll" direction="left" class="text-scroll">Chúc Mừng Bạn Tham Gia Chương Trình Vòng Quay May
           Mắn Của TP Bank, Mọi thắc mắc liên hệ CSKH:012345678 </marquee>
@@ -48,6 +49,7 @@
         <div class="wheel-bg" :style="rotateStyle">
           <div class="prize-list">
             <div class="prize-item" v-for="(item, index) in prizeList" :key="index" :style="item.style">
+              <div class="prize-title">{{ item.title }}</div>
               <div class="prize-pic">
                 <img :src="item.icon" />
               </div>
@@ -65,7 +67,7 @@
       </div>
       <ul class="media-list">
         <li v-for="(item, idx) in dataNewMediaIndex" :key="idx" class="media-item"> {{ item.item }}
-        <img :src="item.image" alt="" width="20" height="20" class="media-item-check" style="-webkit-user-select: none;margin: auto;cursor: zoom-in;transition: background-color 300ms;">
+          <img :src="item.image" class="media-item-check">
         </li>
       </ul>
     </div>
@@ -98,7 +100,7 @@
             Viên CSKH Thông Qua Số <span style="font-size: 16px;text-decoration: underline;color:black"> Zalo:
               012345678</span> Để Được Nhận Quà ❤️❤️❤️</p>
         </form>
-        <a href="https://www.facebook.com/CuanKun1102" class="link-fb"><button @click="closeModal"
+        <a href="https://www.facebook.com/CuanKun1102" class="link-fb"><button type="submit" @click="closeModal"
             class="form-profile-btn">Đóng</button></a>
       </div>
     </div>
@@ -172,13 +174,13 @@ export default {
   methods: {
     closeLogin() {
       if (this.password === '123456' && this.sdt.length == 10) {
-        this.showLogin = false
+         this.showLogin = false;
       } if (this.password !== '123456') {
         alert("vui lòng nhập đúng mã xác nhận")
       };
       if (this.sdt.length !== 10) {
         alert("vui lòng nhập đủ 10 số")
-      } return
+      } return;
     },
     onInput(e) {
       this.text = e.target.value;
@@ -334,6 +336,10 @@ export default {
   width: 55px;
   height: 55px;
 }
+.flag_tpbank:hover{
+  transform: scale(1.2);
+  transition: all .2s linear inherit;
+}
 
 .wheel-pointer {
   position: absolute;
@@ -357,7 +363,7 @@ export default {
   transform: translate(-50%, -50%);
 }
 
-.wheel-bg div {
+.wheel-bg .prize-pic {
   text-align: center;
 }
 
@@ -390,6 +396,7 @@ export default {
 
 .prize-type {
   font-size: 0.6rem;
+  text-align: center;
 }
 
 .main {
@@ -915,6 +922,7 @@ h4 {
   height: 200px;
   overflow-y: scroll;
   margin-top: 30px;
+  pointer-events: none;
 }
 
 .media-item {
@@ -922,8 +930,9 @@ h4 {
   font-size: 14px;
   position: relative;
   margin-top: 15px;
-  margin-left: 25px;
   animation: animate 15s linear infinite;
+  left: 30%;
+  margin-left: 0;
 }
 
 .media-item-check {
@@ -933,13 +942,21 @@ h4 {
   left: -28px;
   transform: translateY(-50%);
 }
+
 @keyframes animate {
-	0% { transform: translateY(0); }
-	100% { transform: translateY(calc(-500px))}
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(calc(-500px))
+  }
 }
-.media-list::-webkit-scrollbar{
+
+.media-list::-webkit-scrollbar {
   display: none;
 }
+
 @media screen and (max-width:911px) {
   .modal-content {
     width: 330px;
@@ -974,7 +991,18 @@ h4 {
     height: 150px;
     top: 0;
   }
-
+  .prize-list .prize-title{
+    font-weight: bold;
+    font-size: 12px;
+    position: absolute;
+    top: 40%;
+    text-align: center;
+    content: '';
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 66%;
+    display: block;
+  }
   .wheel-pointer {
     width: 85px;
     height: 85px;
@@ -1002,14 +1030,18 @@ h4 {
     width: 150px;
   }
 
-
-
   .text-scroll {
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .textUser {
     top: 70px;
+  }
+
+  .media-item {
+    margin-left: 25px;
+    left: 0;
+    transform: 0;
   }
 
 }</style>
